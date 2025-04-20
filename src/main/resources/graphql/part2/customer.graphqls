@@ -1,0 +1,22 @@
+type Query {
+    # Fetch all customers
+    customers: [Customer]!
+    # Fetch Customer by Id
+    customerById(id: ID!): Customer
+    # Filter customer by Name
+    customerNameContains(name: String): [Customer]!
+    # Customers in age range
+    customerInAge(filter: AgeRangeFilter!): [Customer]!
+}
+
+type Customer {
+    id: String!
+    name: String
+    age: Int
+    city: String
+}
+
+input AgeRangeFilter {
+    min: Int!
+    max: Int!
+}
