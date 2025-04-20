@@ -1,1 +1,11 @@
-spring.application.name=graph
+spring:
+  application:
+    name: graphql
+  graphql:
+    schema:
+      locations: classpath:graphql/${app.part}
+    path: /graphql
+    graphiql:
+      enabled: true
+      path: /graphiql
+
