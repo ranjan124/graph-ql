@@ -1,5 +1,0 @@
-type Query1 {
-    sayHello: String
-    sayHelloTo(name: String!): String
-    random: Int!
-}
