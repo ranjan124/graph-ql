@@ -1,8 +1,10 @@
-package com.shieldteq.graph.part3.service;
+package com.shieldteq.graph.part7.service;
 
-import com.shieldteq.graph.part3.dto.Customer;
+import com.shieldteq.graph.part7.dto.Customer;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+
+import java.time.LocalDateTime;
 
 @Service
 public class CustomerService {
@@ -13,7 +15,10 @@ public class CustomerService {
     );
 
     public Flux<Customer> getCustomers() {
-        return customers;
+        return customers.delayElements(java.time.Duration.ofSeconds(1)).doOnNext(c -> printMsg("Customer: " + c.name()));
     }
 
+    private void printMsg(String msg) {
+        System.out.println(LocalDateTime.now() + ": " + msg);
+    }
 }
