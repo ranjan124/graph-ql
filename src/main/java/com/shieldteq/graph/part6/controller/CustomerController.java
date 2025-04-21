@@ -1,7 +1,8 @@
-package com.shieldteq.graph.part5.controller;
+package com.shieldteq.graph.part6.controller;
 
-import com.shieldteq.graph.part5.dto.Customer;
-import com.shieldteq.graph.part5.service.CustomerService;
+import com.shieldteq.graph.part6.dto.Customer;
+import com.shieldteq.graph.part6.service.CustomerService;
+import graphql.schema.DataFetchingFieldSelectionSet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,8 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @QueryMapping
-    public Flux<Customer> customers() {
+    public Flux<Customer> customers(DataFetchingFieldSelectionSet selectionSet) {
+        System.out.println("customer: " + selectionSet.getFields());
         return customerService.getCustomers();
     }
 

@@ -1,4 +1,4 @@
-package com.shieldteq.graph.part5.dto;
+package com.shieldteq.graph.part6.dto;
 
 public record Customer(
         int id,

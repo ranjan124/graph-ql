@@ -1,6 +1,6 @@
-package com.shieldteq.graph.part5.service;
+package com.shieldteq.graph.part6.service;
 
-import com.shieldteq.graph.part5.dto.Customer;
+import com.shieldteq.graph.part6.dto.Customer;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
